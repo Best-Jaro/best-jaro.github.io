@@ -1,1 +1,19 @@
+---
+import '../assets/global.css';
+const { title = 'Best_Jaro — Portfolio' } = Astro.props;
+---
 
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta
+      name="description"
+      content="Лучшие работы и контакты Best_Jaro — начинающего разработчика и стримера."
+    />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

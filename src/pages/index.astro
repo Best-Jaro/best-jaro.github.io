@@ -1,37 +1,67 @@
 ---
-import '../assets/global.css';
-const name = "Best Jaro";
+import Layout from '../layouts/Layout.astro';
+
+const hero = {
+  name: 'Best_Jaro',
+
+  pixel: 'BEGINNER PYTHON · C++ · KOTLIN · TWITCH STREAMER'
+};
+
+const socials = [
+  {
+    label: 'github.com/best-jaro',
+    href: 'https://github.com/best-jaro',
+    icon: '/src/assets/Octicons-mark-github.svg'
+  },
+  {
+    label: 'discord.best_jaro',
+    href: 'https://discord.com/users/695567308126421003',
+    icon: '/src/assets/discord-icon.svg'
+  },
+  {
+    label: 'twitch.tv/best_jaro',
+    href: 'https://twitch.tv/best_jaro',
+    icon: '/src/assets/logo-twitch.svg'
+  }
+];
 ---
 
-<html lang="ru">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Портфолио — {name}</title>
-  </head>
-  <body>
-    <main>
-      <h1>Привет, я {name} 👋</h1>
-      <p>Я делаю сайты, интерфейсы и немного магии.</p>
-
-      <section>
-        <h2>Обо мне</h2>
-        <p>Здесь можно написать кратко, кто ты и чем занимаешься.</p>
-      </section>
-
-      <section>
-        <h2>Проекты</h2>
-        <ul>
-          <li>Проект 1</li>
-          <li>Проект 2</li>
-          <li>Проект 3</li>
-        </ul>
-      </section>
-
-      <section>
-        <h2>Контакты</h2>
-        <p>Email, Telegram, GitHub — что хочешь.</p>
-      </section>
-    </main>
-  </body>
-</html>
+<Layout title="Best_Jaro — Главная">
+  <main class="scene">
+    <img
+      class="scene__bg"
+      src="/src/assets/background.png"
+      alt="Размытый темный градиент"
+      aria-hidden="true"
+    />
+    <article class="hero-card" aria-label="Приветственная карточка Best Jaro">
+      <div class="hero-card__top">
+        <div class="hero-card__avatar-wrap">
+          <img
+            class="hero-card__avatar"
+            src="/src/assets/Best_Jaro_avatar.png"
+            alt="Портрет аватара Best Jaro"
+          />
+          <span class="hero-card__caption">me btw</span>
+        </div>
+        <div>
+          <p class="hero-card__tagline">HI,</p>
+          <h1 class="hero-card__title">
+            I&apos;m <span>{hero.name}</span>
+          </h1>
+          <p class="hero-card__tagline">{hero.tagline}</p>
+          <p class="hero-card__pixel">{hero.pixel}</p>
+        </div>
+      </div>
+      <div class="hero-divider" aria-hidden="true"></div>
+      <div class="socials" role="list">
+        {socials.map((item) => (
+          <a class="social-card" href={item.href} target="_blank" rel="noreferrer" role="listitem">
+            <img class="social-card__icon" src={item.icon} alt="" aria-hidden="true" />
+            <span class="social-card__label">{item.label}</span>
+          </a>
+        ))}
+      </div>
+    </article>
+  </main>
+</Layout>
